@@ -1,4 +1,4 @@
-.PHONY: build serve clean pack deploy ship
+.PHONY: build clean pack deploy ship
 
 build:
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o simple-go-app cmd/main.go
