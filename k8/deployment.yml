@@ -1,0 +1,30 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    app: simple-go-app
+  name: simple-go-app
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: simple-go-app
+  template:
+    metadata:
+      labels:
+        app: simple-go-app
+    spec:
+      containers:
+        - name: simple-go-app
+          image: rishiskeshav91/simple-go-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 7000
+              protocol: TCP
+              name: http

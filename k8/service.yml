@@ -1,0 +1,14 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    app: simple-go-app
+  name: simple-go-app
+spec:
+  ports:
+    - name: http
+      port: 7000
+      targetPort: 7000
+  selector:
+    app: simple-go-app
